@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace emp_be
 {
@@ -11,6 +12,8 @@ namespace emp_be
         {
             // Web API configuration and services
 
+            // cors
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
             // Web API routes
             config.MapHttpAttributeRoutes();
 
