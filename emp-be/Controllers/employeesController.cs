@@ -74,10 +74,6 @@ namespace emp_be.Controllers
         [ResponseType(typeof(employee))]
         public IHttpActionResult Postemployee(employee employee)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             db.employees.Add(employee);
             db.SaveChanges();

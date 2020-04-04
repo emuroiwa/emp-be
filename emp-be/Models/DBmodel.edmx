@@ -4,9 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="simple_crudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'simple_crud.dbo.employees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="simple_crudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="employees">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -17,17 +15,9 @@ warning 6002: The table/view 'simple_crud.dbo.employees' does not have a primary
           <Property Name="Email" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="simple_crudModelStoreContainer">
-          <EntitySet Name="employees" EntityType="Self.employees" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [employees].[EmployeeID] AS [EmployeeID], 
-    [employees].[EmployeeName] AS [EmployeeName], 
-    [employees].[StaffNumber] AS [StaffNumber], 
-    [employees].[Email] AS [Email]
-    FROM [dbo].[employees] AS [employees]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="simple_crudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
