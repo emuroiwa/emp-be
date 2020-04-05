@@ -2,7 +2,7 @@
 Employee backend API
 
 ## Table of Contents
-- How i made it(#blog)
+- [How i made it](#blog)
 - [Technology](#technology)
 - [Database](#database)
 - [API Endpoints](#apiendpoints)
