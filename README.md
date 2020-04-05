@@ -5,7 +5,6 @@ Employee backend API
 - How i made it(#blog)
 - [Technology](#technology)
 - [Database](#database)
-- [Setup](#setup)
 - [API Endpoints](#apiendpoints)
 
 ## How i made it <a id="blog">
