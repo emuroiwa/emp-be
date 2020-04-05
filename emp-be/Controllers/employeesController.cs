@@ -1,4 +1,12 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <inheritdoc>
+//     Employee api for getting/finding/adding/deleting employee.
+//
+//     Ernest Muroiwa
+// </inheritdoc>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -16,26 +24,25 @@ namespace emp_be.Controllers
     {
         private DBmodel db = new DBmodel();
 
+        /// <summary>
+        /// Get all employees.
+        /// </summary>
+        /// <returns>Ok with all employees.</returns>
         // GET: api/employees
         public IQueryable<employee> Getemployees()
         {
             return db.employees;
         }
 
-        // GET: api/employees/5
-        [ResponseType(typeof(employee))]
-        public IHttpActionResult Getemployee(int id)
-        {
-            employee employee = db.employees.Find(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(employee);
-        }
-
+        /// <summary>
+        /// Update existing employee.
+        /// </summary>
+        /// <param name="id">Id of employee.</param>
+        /// <param name="patch">JSON patch operations in body.</param>
+        /// <returns>Ok with updated employee.</returns>
         // PUT: api/employees/5
+
         [ResponseType(typeof(void))]
         public IHttpActionResult Putemployee(int id, employee employee)
         {
@@ -70,7 +77,13 @@ namespace emp_be.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Add a employee.
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns>Created status for successful post.</returns>
         // POST: api/employees
+
         [ResponseType(typeof(employee))]
         public IHttpActionResult Postemployee(employee employee)
         {
@@ -81,7 +94,13 @@ namespace emp_be.Controllers
             return CreatedAtRoute("DefaultApi", new { id = employee.EmployeeID }, employee);
         }
 
+        /// <summary>
+        /// Deletes employee for given id.
+        /// </summary>
+        /// <param name="id">employee id.</param>
+        /// <returns>No content status for successful deletion.</returns>
         // DELETE: api/employees/5
+
         [ResponseType(typeof(employee))]
         public IHttpActionResult Deleteemployee(int id)
         {
