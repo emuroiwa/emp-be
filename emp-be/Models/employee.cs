@@ -11,12 +11,23 @@ namespace emp_be.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class employee
     {
+        [Key]
         public int EmployeeID { get; set; }
+
+        [Required(ErrorMessage = "Enter Employee Name")]
+        [StringLength(100, ErrorMessage = "Only 100 character are allowed")]
         public string EmployeeName { get; set; }
+
+        [Required(ErrorMessage = "Enter Employee Number")]
+        [StringLength(100, ErrorMessage = "Only 100 character are allowed")]
         public string StaffNumber { get; set; }
+
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}",ErrorMessage = "Please enter Valid Email ID")]
+        [Required(ErrorMessage = "Please enter Student EmailID")]
         public string Email { get; set; }
     }
 }
